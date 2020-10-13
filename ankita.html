@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,12 +17,127 @@
       </script>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-      <link rel="stylesheet" href="style.css" />
       <script data-require="angular.js@1.3.x" src="https://code.angularjs.org/1.3.14/angular.js" data-semver="1.3.14"></script>
       <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Sniglet" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
     </head>
     <body>
+    <style>
+      /* Styles go here */
+
+   
+body {
+    background: #b3dee7;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.taskTitle {
+    margin: 30px 0px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #ffffff;
+    
+    font-weight: 800;
+}
+
+
+
+#addTaskBtn {
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #ebb3ce;
+    background-color: #02798F;
+    transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -ms-transition: all 0.75s ease;
+    -o-transition: all 0.75 ease;
+    font-weight: bold;
+}
+
+    #addTaskBtn:hover {
+        background-color: #02798F;
+        color: #FFCD5D;
+    }
+
+ul {
+    text-align: left;
+}
+
+
+li {
+    list-style: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 600;
+    border: 2px solid #025f70;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #4EB9CD;
+    transition: all 0.75s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5 ease;
+}
+
+    li:hover {
+        background: #76CFE0;
+    }
+
+    li > button {
+        font-weight: normal;
+        background: none;
+        border: none;
+        float: right;
+        color: #025f70;
+        font-weight: 800;
+    }
+
+input {
+    border-radius: 5px;
+    min-width: 65%;
+    padding: 5px;
+    border: none;
+}
+
+
+.done {
+    background: #a6c143 !important;
+    color: #025f70;
+}
+
+.started {
+    background: #56c596 !important;
+    color: #025f70;
+}
+
+.paused {
+    background: #ff503c !important;
+    color: #025f70;
+}
+
+.delete {
+    display: none;
+}
+
+.timerDisplay {
+    font-weight: normal;
+    background: none;
+    border: none;
+    float: right;
+    color: #025f70;
+    font-weight: 800;
+    padding-right :"20px";
+}
+
+    </style>
+
         <h1>Ankita's Website</h1>
 
 <marquee scrollamount=10 behavior="scroll"    background="linear-gradient(45deg, rgba(189,245,152,1) 0%, rgba(50,87,81,1) 100%);
@@ -1153,15 +1267,17 @@ render_board();
 <center>
     <h1>Red Block</h1>
     <div id="myfilter" style="position:absolute;background:#linear-gradient(45deg, rgba(189,245,152,1) 0%, rgba(50,87,81,1) 100%))";opacity:0.3;width:322px;height:182px;display:none"></div>
-    
+    <center>
     <div id="myrestartbutton"><button onclick="restartGame()">Restart</button></div>
     </center>
     <div id="canvascontainer"></div>
     <br>
+    <center>
     <div style="text-align:center;width:320px;">
       <button ontouchstart="moveup()" onmousedown="moveup()" onmouseup="clearmove()">UP</button><br><br>
       <button ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()">DOWN</button>
     </div>
+    </center>
     <br>
 </center>
     <script>    
@@ -1527,6 +1643,45 @@ loop = "infinite" width = 113%><h1>Submit A Google Form To Tell Me What I Should
   width="1200"
   height="900"
 ></iframe>
+
+<h1>Countdown Timer</h1>
+
+<h3 id="demo"></h3>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 1, 2021 00:00:01").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + " Days " + hours + " Hrs "
+  + minutes + " Min " + seconds + " Sec ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+<center>
+<h3>Until The Next New Year!</h3>
+</center>
+
 <h1>First 1,000 Digits of Pi</h1>
 <div><button id="buton" onclick="hideOffers()">Hide The First 1,000 Digits Of Pi Note: This doesn't work YET...</button></div>
 <div class="specials" id="ofers">
